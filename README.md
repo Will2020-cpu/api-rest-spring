@@ -1,4 +1,4 @@
-# API REST Hibernate,Spring Security
+# API REST Hibernate, Spring Security JWT
 
 ### Roles
 - User
