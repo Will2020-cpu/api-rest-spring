@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -42,7 +43,11 @@ public class UserResource {
     @PostMapping("/user/save")
     public ResponseEntity<User> saveUser(@RequestBody User user) {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/save").toUriString());
-        return ResponseEntity.created(uri).body(userService.saveUser(user));
+        if (userService.saveUser(user) != null){
+            return ResponseEntity.created(uri).body(userService.saveUser(user));
+        }else{
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+        }
     }
 
     @PostMapping("/role/save")
@@ -57,6 +62,8 @@ public class UserResource {
         return ResponseEntity.ok().build();
     }
 
+
+    //Generate refresh token
     @PostMapping("/token/refresh")
     public void RefreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String authorizationHeader = request.getHeader(AUTHORIZATION);
