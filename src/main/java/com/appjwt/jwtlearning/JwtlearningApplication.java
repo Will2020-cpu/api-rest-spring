@@ -1,7 +1,11 @@
 package com.appjwt.jwtlearning;
 
+import com.appjwt.jwtlearning.models.Author;
+import com.appjwt.jwtlearning.models.Book;
 import com.appjwt.jwtlearning.models.Role;
 import com.appjwt.jwtlearning.models.User;
+import com.appjwt.jwtlearning.service.AuthorService;
+import com.appjwt.jwtlearning.service.BookService;
 import com.appjwt.jwtlearning.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,7 +29,7 @@ public class JwtlearningApplication {
 	}
 
 	@Bean
-	CommandLineRunner run (UserService userService){
+	CommandLineRunner run (UserService userService, BookService bookService, AuthorService authorService){
 		return args -> {
 			userService.saveRole(new Role(null,"ROLE_USER"));
 			userService.saveRole(new Role(null,"ROLE_MANAGER"));
@@ -46,7 +50,10 @@ public class JwtlearningApplication {
 			userService.addRoleToUser("antman","ROLE_USER");
 			userService.addRoleToUser("ironman","ROLE_USER");
 
+			authorService.saveAuthor(new Author(null,"Willian","Escribo libros",null));
 
+			bookService.saveBook(new Book(null,"Shining","description","myurl",null,null,null, new ArrayList<>()));
+			bookService.addAuthorToBook("Willian","Shining");
 		};
 	}
 
