@@ -7,6 +7,6 @@
 - Super Admin
 
 ### Endpoints
-- https://localhost:8080/api/users/
-- https://localhost:8080/api/books/
+- http://localhost:8080/api/users/
+- http://localhost:8080/api/books/
 
