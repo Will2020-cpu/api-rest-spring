@@ -2,7 +2,6 @@ package com.appjwt.jwtlearning.service;
 
 import com.appjwt.jwtlearning.models.Author;
 import com.appjwt.jwtlearning.repository.AuthorRepo;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

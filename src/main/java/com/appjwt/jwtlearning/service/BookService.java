@@ -10,4 +10,5 @@ public interface BookService {
     void addAuthorToBook(String nameAuthor,String nameBook);
     List<Book> getBooks();
     Book getBook(String name);
+    List<Book> getBookByAuthorId(Long id);
 }

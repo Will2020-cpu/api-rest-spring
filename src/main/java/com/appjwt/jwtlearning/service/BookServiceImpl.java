@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service @RequiredArgsConstructor @Transactional @Slf4j
@@ -49,5 +50,18 @@ public class BookServiceImpl implements BookService{
     public Book getBook(String name) {
         log.info("Searching book by {} ",name);
         return bookRepo.findByName(name);
+    }
+
+    @Override
+    public List<Book> getBookByAuthorId(Long id) {
+        List<Book> books = new ArrayList<>();
+        for (Book item: getBooks()){
+            for (Author author : item.getAuthors()){
+                if (author.getId().equals(id)){
+                    books.add(item);
+                }
+            }
+        }
+        return books;
     }
 }

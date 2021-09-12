@@ -28,7 +28,13 @@ public class BookResource {
         return ResponseEntity.ok(bookService.getBooks());
     }
 
-    @PostMapping("/books/save")
+
+    @GetMapping("/books/author/{id}")
+    public ResponseEntity<List<Book>> getBookByAuthorId(@PathVariable Long id){
+        return ResponseEntity.ok(bookService.getBookByAuthorId(id));
+    }
+
+    @PostMapping("/book/save")
     public ResponseEntity<Book> saveBook(@RequestBody Book book){
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/book/save").toUriString());
         return ResponseEntity.created(uri).body(bookService.saveBook(book));
