@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="phonecatApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--CDN-->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"
+        integrity="sha512-7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM0ZJdvkyDcVO7KFA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-cookies/1.8.2/angular-cookies.min.js"
+        integrity="sha512-5MlJcQrhy663S1tAEEQGHzoqqdsCIoFYA2ZLajvSeZl4uVxbBvive9hqpiIqHl3CEQfe7WlI/S1lbjsdoEBnRA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.2/angular-route.js" integrity="sha512-C92rntF0G0YH9kHzQlpux7ADvyKgyUwBqusewsHs/0ibOTNuHxFyVqDkI0BIcLGyP76fxgLOpMOLO6kmHCS/xA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--Route config-->
+    <script src="app.module.js"></script>
+
+
+    <!--Modulos-->
+    <script src="home/home.module.js"></script>
+    <script src="home/home.component.js"></script>
+    <script src="book-list/book-list.module.js"></script>
+    <script src="book-list/book-list.component.js"></script>
+    <script src="login-form/login-form.module.js"></script>
+    <script src="login-form/login-form.component.js"></script>
+
+
+
+    <title>Libreria</title>
+</head>
+
+<body>
+    <div ng-view></div>
+
+
+</body>
+
+</html>
