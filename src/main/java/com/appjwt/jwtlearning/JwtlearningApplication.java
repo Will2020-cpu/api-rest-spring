@@ -52,8 +52,8 @@ public class JwtlearningApplication {
 
 			authorService.saveAuthor(new Author(null,"Willian","Escribo libros",null));
 
-			bookService.saveBook(new Book(null,"Shining","description","myurl",null,null,null, new ArrayList<>()));
-			bookService.addAuthorToBook("Willian","Shining");
+			bookService.saveBook(new Book(null,"Shining","description","https://i.ebayimg.com/images/g/e6wAAOSw2jVhE7Wf/s-l300.png",null,null,null, new ArrayList<>()));
+			bookService.addAuthorToBook("Stephen King","Shining");
 		};
 	}
 

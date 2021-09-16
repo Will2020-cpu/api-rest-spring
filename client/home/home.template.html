@@ -1,7 +1,7 @@
 <header class="w-full bg-white border-b">
     <div class="flex items-center justify-end p-4">
         <nav>
-
+            <!--Ni idea aun-->
         </nav>
         <a href="#!/login" class="hover:text-green-500 hover:underline">Soy el admin 😎</a>
     </div>
@@ -12,16 +12,17 @@
 
     <!--Section libros-->
     <section>
-        <div class="grid md:grid-cols-2 gap-2 grid-cols-1">
+        <div class="grid md:grid-cols-2 gap-2 grid-cols-1" ng-repeat="book in $ctrl.books">
             <div class="border p-4 transition duration-500 ease-in-out hover:shadow-lg">
                 <div class="flex space-x-8">
+                    <!--Caratula-->
                     <div class="">
-                        <img class="h-60" src="https://i.ebayimg.com/images/g/e6wAAOSw2jVhE7Wf/s-l300.png"
-                            alt="caratula">
+                        <img class="h-60" src={{book.url_picture}}
+                            alt={{book.name}}>
                     </div>
                     <div class="flex-1">
                         <!--Titulo-->
-                        <h4 class="text-2xl">Shining</h4>
+                        <h4 class="text-2xl">{{book.name}}</h4>
                         <span class="text-sm text-gray-500 tracking-tighter">Publicado : 30-01-2000</span>
                         <!--Descripcion-->
                         <p class="mt-4 text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est,
@@ -33,37 +34,10 @@
                         <!--Autor-->
                         <div class="flex items-center justify-end mt-8">
                             <h1 class="text-sm text-gray-500">Autor : <a href=""
-                                    class="hover:text-green-500 hover:underline">Stephen King</a></h1>
+                                    class="hover:text-green-500 hover:underline">{{book.authors[0].name}}</a></h1>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="border p-4 transition duration-500 ease-in-out hover:shadow-lg">
-                <div class="flex space-x-8">
-                    <div class="">
-                        <img class="h-60" src="https://i.ebayimg.com/images/g/e6wAAOSw2jVhE7Wf/s-l300.png"
-                            alt="caratula">
-                    </div>
-                    <div class="flex-1">
-                        <!--Titulo-->
-                        <h4 class="text-2xl">Shining</h4>
-                        <span class="text-sm text-gray-500 tracking-tighter">Publicado : 30-01-2000</span>
-                        <!--Descripcion-->
-                        <p class="mt-4 text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est,
-                            animi
-                            aut repellendus voluptate delectus voluptates fugit expedita pariatur itaque ut, sed id
-                            nobis
-                            saepe nisi neque quas eius voluptatem. Molestiae?</p>
-
-                        <!--Autor-->
-                        <div class="flex items-center justify-end mt-8">
-                            <h1 class="text-sm text-gray-500">Autor : <a href=""
-                                    class="hover:text-green-500 hover:underline">Stephen King</a></h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 </main>
