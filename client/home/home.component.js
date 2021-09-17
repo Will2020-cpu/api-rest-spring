@@ -8,7 +8,6 @@ angular.
 
                 $http.get('http://localhost:8080/api/books').then(function(response){
                     data.books = response.data;
-                    console.log(response.data);
                 })
                 
             }

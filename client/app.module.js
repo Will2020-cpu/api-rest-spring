@@ -3,7 +3,8 @@ var app = angular.module('phonecatApp',[
     'ngCookies',
     'bookList',
     'loginForm',
-    'home'
+    'home',
+    'adminContainer',
 ])
 
 app.config(function($qProvider, $routeProvider){
@@ -14,6 +15,9 @@ app.config(function($qProvider, $routeProvider){
         }).
         when("/login",{
             template:'<login-form></login-form>'
+        }).
+        when('/admin',{
+            template:'<admin-container></admin-container>'
         })
     
 })
