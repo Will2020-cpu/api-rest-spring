@@ -1,5 +1,5 @@
 <div class="flex flex-row h-screen">
-    <div class="flex flex-col justify-between items-center w-16 p-4 bg-gray-200">
+    <div class="flex flex-col justify-between items-center flex-none w-16 p-4 bg-gray-200">
         <div class="flex flex-col space-y-4">
             <a><div class="rounded-full bg-gray-400 w-8 h-8"></div></a>
             <a><div class="rounded-full bg-gray-400 w-8 h-8"></div></a>
@@ -16,24 +16,38 @@
             <a><div class="rounded-full bg-gray-400 w-8 h-8"></div></a>
         </div>
     </div>
-    
-    <div class="w-64 bg-gray-100 p-4 flex flex-col space-y-4">
+
+    <div class="w-64 bg-gray-100 p-4 flex flex-col flex-none space-y-4">
         <div class="flex flex-row justify-between items-center m-6">
             <h1 class="font-semibold text-2xl" >Inbox</h1>
-            <svg xmlns="http://www.w3.org/2000/svg" class="flex-none h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
         </div>
 
-       <div class="bg-red-200 h-64"></div>
-       <div class="bg-red-200 h-64"></div>
+        <div class="bg-red-200 h-64"></div>
+        <div class="bg-red-200 h-64"></div>
 
     </div>
 
-
     <div class="flex flex-row flex-auto bg-white rounded-tl-xl border-l shadow-xl">
-        <div class="bg-red-200">left</div>
-        <div class="bg-green-200">center</div>
-        <div class="flex-auto bg-blue-200">right</div>
+        <div class="w-1/5">
+            <div class="h-24 bg-red-200">top</div>
+
+            <div class="flex-auto overflow-y-auto">
+                <a class="block border-b">
+                    <div class="border-l-2 border-blue-500 p-2">
+                        <div class="flex flex-row items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <strong class="flex-grow text-sm">Name</strong>
+                            <span>b</span>
+                        </div>
+                        <div class="bg-red-200">bottom</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="w-3/5 border-l border-r border-gray-400">center</div>
+        <div class="w-1/5 bg-gray-100">right</div>
     </div>
 </div>
