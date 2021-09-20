@@ -1,52 +1,51 @@
-import Head from 'next/head';
-import React,{ useState } from 'react';
+import Layout from "../components/Layout"
 
-
-export default function Home() {
-
-    /*Manejando el formulario*/
-    const signinForm = async event =>{
-        event.preventDefault();
-        const res = await fetch(
-            `https://localhost:8080/login?username=${event.target.name.value}&password=${event.target.password.value}"`
-        )
-
-    }
-
-    return(
+const Index = (props) => {
+    return (
         <>
-            <div className="flex items-center justify-center relative">
-                <span className="absolute top-12 py-2 px-5 text-sm bg-red-500 rounded-sm text-white">
-                    Inicio de sesion
-                </span>
-            
-                <div className="w-max mx-auto h-screen flex items-center justify-center ">
-                    {/* Header form  */}
-                    <div className="border shadow-lg rounded-lg">
-                        <div className="border-b py-2">
-                            <div className="px-20">
-                                <h4 className="text-xl text-center">Iniciar sesion</h4>
-                            </div>
-                        </div>
-                        {/* Body form */}
-                        <div className="flex items-center justify-center px-10 py-8">
-                            <form  className="space-y-4">
-                                <div className="flex flex-col space-y-1">
-                                    <label htmlFor="inputUsername" className="text-sm">Username</label>
-                                    <input type="username" autoComplete="username" required id="inputUsername" placeholder="spiderman" className="border p-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent" />
+            <Layout>
+                <main>
+                    <div className="grid grid-cols-2 m-10 gap-4">
+                        {
+                            props.books.map(item => (
+                                <div className="p-2 border shadow-sm">
+                                    <div className="flex space-x-8">
+                                        <div className="flex-none">
+                                            <img className="h-60" src={item.url_picture} alt={item.name} />
+                                        </div>
+                                        <div className="flex flex-col justify-between">
+                                            <div className="">
+                                                <h1 className="text-2xl">{item.name}</h1>
+                                                <span className="text-xs text-gray-500">Publicado 20-01-2000</span>
+                                            </div>
+                                            <p className="text-justify">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente adipisci assumenda omnis quae! Corrupti aliquid distinctio nam ipsam ipsum! Magni aspernatur vitae tenetur soluta, dolorum rerum a est consequatur placeat?
+                                            </p>
+                                            <div className="flex items-center justify-end">
+                                                <span className="text-xs text-gray-500">Author: Stephen King</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="flex flex-col space-y-1">
-                                    <label htmlFor="inputPassword">Password</label>
-                                    <input type="password" id="inputPassword" placeholder="******"  className="border p-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent"/>
-                                </div>
-                                <div className="w-full">
-                                    <button type="submit" className="w-full p-2 text-white rounded-sm bg-black">Ingresar</button>
-                                </div>
-                            </form>
-                        </div>
+                            ))
+                        }
                     </div>
-                </div>
-            </div>
+                </main>
+            </Layout>
         </>
     )
 }
+
+Index.getInitialProps = async function () {
+    const resBooks = await fetch(
+        "http://localhost:8080/api/books"
+    )
+
+    const dataBooks = await resBooks.json();
+
+    return {
+        books: dataBooks,
+    }
+}
+
+export default Index
